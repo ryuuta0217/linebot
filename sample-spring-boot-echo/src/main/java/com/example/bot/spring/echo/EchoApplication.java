@@ -38,10 +38,15 @@ public class EchoApplication {
         System.out.println("イベント発生: " + event);
         System.out.println("メッセージを受信しました: " + event.getMessage().getText());
         return new TextMessage("こんちには！");
+        if(event.getMessage().getText().equalsIgnoreCase("help") || event.getMessage().getText().equalsIgnoreCase("ヘルプ")) {
+            return new TextMessage("コマンドはまだ実装されていません :(");
+        } else {
+            return new TextMessage("存在しないコマンドです");
+        }
     }
 
     @EventMapping
     public void handleDefaultMessageEvent(Event event) {
-        System.out.println("event: " + event);
+        System.out.println("イベント発生: " + event);
     }
 }
