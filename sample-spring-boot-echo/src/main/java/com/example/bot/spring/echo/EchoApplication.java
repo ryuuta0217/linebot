@@ -37,7 +37,6 @@ public class EchoApplication {
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         System.out.println("イベント発生: " + event);
         System.out.println("メッセージを受信しました: " + event.getMessage().getText());
-        return new TextMessage("こんちには！");
         if(event.getMessage().getText().equalsIgnoreCase("help") || event.getMessage().getText().equalsIgnoreCase("ヘルプ")) {
             return new TextMessage("コマンドはまだ実装されていません :(");
         } else {
